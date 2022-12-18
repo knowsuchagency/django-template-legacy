@@ -1,6 +1,6 @@
 # list commands
 ls:
-    just ls
+    just --list
 
 # install packages
 install:
@@ -18,6 +18,24 @@ runserver:
 # initialize development
 init:
     just install
+    just template
     python manage.py makemigrations
     python manage.py migrate
     just runserver
+
+# templatize non-django files
+template:
+    #!/usr/bin/env python
+    from pathlib import Path
+    from django.template import Engine, Context
+    
+    FILES = ["Dockerfile", "docker-compose.yml", "fly.toml"]
+
+    project_name = Path.cwd().stem
+
+    for f in FILES:
+        path = Path(f)
+        template = Engine().from_string(path.read_text())
+        rendered = template.render(Context({"project_name": project_name}))
+        path.write_text(rendered)
+        print(f"templated {f}")

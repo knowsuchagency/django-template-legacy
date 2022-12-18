@@ -3,3 +3,5 @@ django-widget-tweaks~=1.4
 django-debug-toolbar~=3.8
 django-tailwind~=3.4
 django-browser-reload~=1.6
+uvicorn~=0.18
+whitenoise~=6.2
