@@ -1,20 +1,3 @@
-# list commands
-ls:
-    just --list
-
-# install packages
-install:
-    pip install -U pip
-    pip install -r requirements.txt
-    python manage.py tailwind install
-    npm i -g concurrently
-
-# run server with tailwind
-runserver:
-    which python
-    python manage.py tailwind install
-    concurrently -n tailwind,django "python manage.py tailwind start" "python manage.py runserver"
-
 # initialize development
 init:
     just install
@@ -22,6 +5,18 @@ init:
     python manage.py makemigrations
     python manage.py migrate
     just runserver
+
+# install packages
+install:
+    pip install -U pip
+    pip install -r requirements.txt
+    python manage.py tailwind install
+
+# run server with tailwind
+runserver:
+    which python
+    python manage.py tailwind install
+    concurrently -n tailwind,django "python manage.py tailwind start" "sleep 3 && python manage.py runserver"
 
 # templatize non-django files
 template:
