@@ -7,6 +7,7 @@ install:
     pip install -U pip
     pip install -r requirements.txt
     python manage.py tailwind install
+    npm i -g concurrently
 
 # run server with tailwind
 runserver:
