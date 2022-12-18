@@ -2,18 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <title>Django Tailwind</title>
+    {% block title %}<title>Django Tailwind</title>{% endblock %}
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% tailwind_css %}
 	</head>
-
+	{% block content %}
 	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
 		<div class="container mx-auto">
 			<section class="flex items-center justify-center h-screen">
 				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
 			</section>
 		</div>
+	{% endblock %}
 	</body>
 </html>
