@@ -1,0 +1,22 @@
+# list commands
+ls:
+    just ls
+
+# install packages
+install:
+    pip install -U pip
+    pip install -r requirements.txt
+    python manage.py tailwind install
+
+# run server with tailwind
+runserver:
+    which python
+    python manage.py tailwind install
+    concurrently -n tailwind,django "python manage.py tailwind start" "python manage.py runserver"
+
+# initialize development
+init:
+    just install
+    python manage.py makemigrations
+    python manage.py migrate
+    just runserver
