@@ -22,4 +22,4 @@ RUN python manage.py tailwind build
 
 ENV DEBUG=false
 
-CMD uvicorn {{ project_name }}.asgi:application --host 0.0.0.0 --port 8080
+CMD gunicorn {{ project_name }}.wsgi -b 0.0.0.0:8080
