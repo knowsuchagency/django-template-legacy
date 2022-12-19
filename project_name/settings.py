@@ -25,7 +25,7 @@ SECRET_KEY = "{{ secret_key }}"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "true").lower().strip().startswith("t")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s]
 
 
 # Application definition
@@ -79,8 +79,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
-ASGI_APPLICATION = "{{ project_name }}.asgi.application"
+WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
 
 
 # Database
@@ -129,6 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = "staticfiles/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -141,4 +142,4 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-WHITENOISE_USE_FINDERS = True
+# WHITENOISE_USE_FINDERS = True

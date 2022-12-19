@@ -3,3 +3,5 @@ services:
     build: .
     ports:
       - "8080:8080"
+    environment:
+      ALLOWED_HOSTS: "localhost 0.0.0.0 127.0.0.1"
