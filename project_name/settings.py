@@ -26,7 +26,8 @@ SECRET_KEY = "{{ secret_key }}"
 DEBUG = os.getenv("DEBUG", "true").lower().strip().startswith("t")
 
 ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s]
-
+if DEBUG:
+    ALLOWED_HOSTS += ["localhost", "127.0.0.1", "0.0.0.0"]
 
 # Application definition
 
