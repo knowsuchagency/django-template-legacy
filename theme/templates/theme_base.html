@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% tailwind_preload_css %}
     {% tailwind_css %}
-    {% block reactivity_scripts %}
+    {% block scripts %}
         <script src="//unpkg.com/htmx.org" defer></script>
         <script src="//unpkg.com/alpinejs" defer></script>
     {% endblock %}
-    {% block additional_header_links %}{% endblock %}
 </head>
 <body>
+{% block header %}{% endblock %}
 {% block content %}
     <div class="bg-gray-50 font-serif leading-normal tracking-normal">
         <div class="container mx-auto">
@@ -24,5 +24,6 @@
         </div>
     </div>
 {% endblock %}
+{% block footer %}{% endblock %}
 </body>
 </html>
