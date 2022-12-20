@@ -11,7 +11,7 @@
     * [django-debug-toolbar](https://pypi.org/project/django-debug-toolbar/)
     * [django-browser-reload](https://pypi.org/project/django-browser-reload/)
 * reactivity
-  * includes [htmx](https://htmx.org/) and [alpine](https://alpinejs.dev/) to the base theme template
+  * [htmx](https://htmx.org/) and [alpine](https://alpinejs.dev/) included in the base theme template
   * adds [django-htmx](https://django-htmx.readthedocs.io/en/latest/middleware.html#django_htmx.middleware.HtmxMiddleware) app
 
 ## Requirements
