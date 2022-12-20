@@ -10,15 +10,15 @@ COPY requirements.txt ./
 RUN pip install -U pip \
     pip install -r requirements.txt
 
-RUN python manage.py tailwind install
 
 COPY {{ project_name }}/ ./{{ project_name }}/
 COPY core/ ./core/
 COPY theme/ ./theme/
-
 COPY manage.py ./
 
+RUN python manage.py tailwind install
 RUN python manage.py tailwind build
+RUN python manage.py collectstatic --noinput
 
 ENV DEBUG=false
 
