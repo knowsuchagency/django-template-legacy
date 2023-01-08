@@ -10,6 +10,7 @@ init:
 install:
     pip install -U pip
     pip install -r requirements.txt
+    pip install -r requirements-dev.txt
     python manage.py tailwind install
 
 # run server with tailwind
@@ -34,3 +35,11 @@ template:
         rendered = template.render(Context({"project_name": project_name}))
         path.write_text(rendered)
         print(f"templated {f}")
+
+# set up serverless AWS deployment
+init-zappa:
+    zappa init
+
+# set up fly.io deployment
+init-fly:
+    flyctl launch
