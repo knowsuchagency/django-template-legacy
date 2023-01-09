@@ -43,3 +43,11 @@ init-zappa:
 # set up fly.io deployment
 init-fly:
     flyctl launch
+
+# deploy to zappa
+deploy-zappa:
+    zappa deploy || zappa update
+
+# deploy to fly.io
+deploy-fly:
+    flyctl deploy
