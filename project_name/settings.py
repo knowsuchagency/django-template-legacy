@@ -37,37 +37,47 @@ else:
 
 # Application definition
 
-INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "django_extensions",
-    "debug_toolbar",
-    "tailwind",
-    "django_browser_reload",
-    "widget_tweaks",
-    "django_htmx",
-    # our apps
-    "core",
-    "theme",
-]
+INSTALLED_APPS = list(
+    filter(
+        None,
+        [
+            "whitenoise.runserver_nostatic",
+            "django.contrib.admin",
+            "django.contrib.auth",
+            "django.contrib.contenttypes",
+            "django.contrib.sessions",
+            "django.contrib.messages",
+            "django.contrib.staticfiles",
+            "django_extensions",
+            "debug_toolbar" if DEBUG else "",
+            "tailwind",
+            "django_browser_reload",
+            "widget_tweaks",
+            "django_htmx",
+            # our apps
+            "core",
+            "theme",
+        ],
+    )
+)
 
-MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
-]
+MIDDLEWARE = list(
+    filter(
+        None,
+        [
+            "django.middleware.security.SecurityMiddleware",
+            "whitenoise.middleware.WhiteNoiseMiddleware",
+            "django.contrib.sessions.middleware.SessionMiddleware",
+            "django.middleware.common.CommonMiddleware",
+            "debug_toolbar.middleware.DebugToolbarMiddleware" if DEBUG else "",
+            "django.middleware.csrf.CsrfViewMiddleware",
+            "django.contrib.auth.middleware.AuthenticationMiddleware",
+            "django.contrib.messages.middleware.MessageMiddleware",
+            "django.middleware.clickjacking.XFrameOptionsMiddleware",
+            "django_browser_reload.middleware.BrowserReloadMiddleware",
+        ],
+    )
+)
 
 ROOT_URLCONF = "{{ project_name }}.urls"
 
