@@ -29,7 +29,10 @@ if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s]
-    ALLOWED_HOSTS += ["{{ project_name }}.fly.dev"]
+    ALLOWED_HOSTS += [
+        "{{ project_name }}.fly.dev",
+        ".amazonaws.com",
+    ]
 
 
 # Application definition
