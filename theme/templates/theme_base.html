@@ -6,14 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% tailwind_preload_css %}
-    {% tailwind_css %}
-    {% block scripts %}
-        <script src="//unpkg.com/htmx.org" defer></script>
-        <script src="//unpkg.com/alpinejs" defer></script>
+    {% javascript_and_css %}
+        {% block css %}
+            {% tailwind_preload_css %}
+            {% tailwind_css %}
+        {% endblock %}
+        {% block javascript %}
+            <script src="//unpkg.com/htmx.org" defer></script>
+            <script src="//unpkg.com/alpinejs" defer></script>
+        {% endblock %}
     {% endblock %}
 </head>
 <body>
+{% block body %}
 {% block header %}{% endblock %}
 {% block main %}
     <div class="bg-gray-50 font-serif leading-normal tracking-normal">
@@ -25,5 +30,6 @@
     </div>
 {% endblock %}
 {% block footer %}{% endblock %}
+{% endblock %}
 </body>
 </html>
