@@ -6,11 +6,9 @@
 
 {% block main %}
 
-<main id="container">
-    <details>
-        <summary>Hello</summary>
-        <p>world</p>
-    </details>
-</main>
+    <main class="container" x-data="{ text: ''}">
+        <input type="text" x-model="text" placeholder="type something here">
+        <article x-text="text"></article>
+    </main>
 
 {% endblock %}
