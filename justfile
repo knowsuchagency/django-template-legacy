@@ -10,6 +10,7 @@ init:
 install:
     # create .venv if it doesn't yet exist
     test -d .venv || python3 -m venv .venv
+
     pip install -U pip
     pip install -r requirements.txt
     pip install -r requirements-dev.txt
