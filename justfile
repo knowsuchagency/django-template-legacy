@@ -2,29 +2,29 @@
 init:
     just install
     just template
-    python manage.py makemigrations
-    python manage.py migrate
+    .venv/bin/python manage.py makemigrations
+    .venv/bin/python manage.py migrate
     just runserver
 
-# install packages
-install:
-    #!/usr/bin/env bash
+# create virtual environment
+create-venv:
     test -d .venv || python3 -m venv .venv
-    . .venv/bin/activate
-    pip install -U pip
-    pip install -r requirements.txt
-    pip install -r requirements-dev.txt
-    python manage.py tailwind install
+
+# install packages
+install: create-venv
+    .venv/bin/pip install -U pip
+    .venv/bin/pip install -r requirements.txt
+    .venv/bin/pip install -r requirements-dev.txt
+    .venv/bin/python manage.py tailwind install
 
 # run server with tailwind
 runserver:
-    which python
-    python manage.py tailwind install
-    concurrently -n tailwind,django "python manage.py tailwind start" "sleep 3 && python manage.py runserver"
+    .venv/bin/python manage.py tailwind install
+    concurrently -n tailwind,django ".venv/bin/python manage.py tailwind start" "sleep 3 && .venv/bin/python manage.py runserver"
 
 # templatize non-django files
 template:
-    #!/usr/bin/env python
+    #!.venv/bin/python
     from pathlib import Path
     from django.template import Engine, Context
     
@@ -41,7 +41,7 @@ template:
 
 # set up serverless AWS deployment
 init-zappa:
-    zappa init
+    .venv/bin/zappa init
 
 # set up fly.io deployment
 init-fly:
@@ -49,7 +49,7 @@ init-fly:
 
 # deploy to zappa
 deploy-zappa:
-    zappa deploy || zappa update
+    .venv/bin/zappa deploy || .venv/bin/zappa update
 
 # deploy to fly.io
 deploy-fly:
