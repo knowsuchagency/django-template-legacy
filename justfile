@@ -8,7 +8,7 @@ init:
 
 # install packages
 install:
-    #!/bin/env bash
+    #!/usr/bin/env bash
     test -d .venv || python3 -m venv .venv
     . .venv/bin/activate
     pip install -U pip
