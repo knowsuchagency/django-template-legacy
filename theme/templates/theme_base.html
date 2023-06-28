@@ -1,7 +1,9 @@
 {% load static tailwind_tags %}
+{% load unicorn %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% unicorn_scripts %}
     {% block title %}<title>Carpe Diem</title>{% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +20,7 @@
     {% endblock %}
 </head>
 <body>
+{% csrf_token %}
 {% block body %}
 {% block header %}{% endblock %}
 {% block main %}
