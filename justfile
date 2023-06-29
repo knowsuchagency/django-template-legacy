@@ -54,3 +54,8 @@ deploy-zappa:
 # deploy to fly.io
 deploy-fly:
     flyctl deploy
+
+# build and run in docker as if it were production
+docker:
+    docker-compose build
+    docker-compose up
