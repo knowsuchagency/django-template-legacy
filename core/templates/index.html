@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load unicorn %}
 
 {% block header %}
     {% include 'partials/header.html' %}
@@ -7,8 +8,21 @@
 {% block main %}
 
     <main class="container" x-data="{ text: ''}">
-        <input type="text" x-model="text" placeholder="type something here">
-        <article x-text="text"></article>
+
+        <div class="grid">
+
+            <div>
+                <input type="text" x-model="text" placeholder="type something here">
+                <article x-text="text"></article>
+            </div>
+
+            <div>
+                {% unicorn 'todo' %}
+            </div>
+
+        </div>
+
     </main>
+
 
 {% endblock %}
