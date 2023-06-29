@@ -23,11 +23,6 @@
 ## Usage
 
 ```bash
-# make sure you have your virtualenv activated
-django-admin startproject --template=https://github.com/knowsuchagency/django-template/archive/main.zip {{project_name}}
-cd {{project_name}}
-# installs packages and runs server on localhost:8000 in virtualenv
-just
-# run in docker on localhost:8080 as if it were in production (debug mode off)
-docker-compose up --build
+# make sure you have django-admin installed globally in a 3.10 interpreter
+curl https://raw.githubusercontent.com/knowsuchagency/django-template/main/install.sh | bash
 ```
