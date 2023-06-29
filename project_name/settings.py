@@ -54,7 +54,6 @@ INSTALLED_APPS = list(
             "django_browser_reload",
             "widget_tweaks",
             "django_htmx",
-            "django_unicorn",
             # our apps
             "core",
             "theme",

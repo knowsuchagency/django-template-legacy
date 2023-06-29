@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load unicorn %}
 
 {% block header %}
     {% include 'partials/header.html' %}
@@ -14,10 +13,6 @@
             <div>
                 <input type="text" x-model="text" placeholder="type something here">
                 <article x-text="text"></article>
-            </div>
-
-            <div>
-                {% unicorn 'todo' %}
             </div>
 
         </div>
