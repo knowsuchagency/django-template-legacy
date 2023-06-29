@@ -4,11 +4,11 @@ init:
     just template
     .venv/bin/python manage.py makemigrations
     .venv/bin/python manage.py migrate
-    just runserver
+    just --list
 
 # create virtual environment
 create-venv:
-    test -d .venv || python3 -m venv .venv
+    test -d .venv || python3.10 -m venv .venv
 
 # install packages
 install: create-venv

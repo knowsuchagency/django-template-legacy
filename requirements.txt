@@ -7,3 +7,4 @@ whitenoise~=6.2
 django-extensions~=3.2
 gunicorn~=20.1
 django-htmx~=1.13
+django-unicorn~=0.51
