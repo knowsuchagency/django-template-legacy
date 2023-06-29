@@ -24,5 +24,5 @@
 
 ```bash
 # make sure you have django-admin installed globally in a 3.10 interpreter
-curl https://raw.githubusercontent.com/knowsuchagency/django-template/main/install.sh | bash
+curl https://raw.githubusercontent.com/knowsuchagency/django-template/main/install.sh | bash -s <project_name>
 ```
