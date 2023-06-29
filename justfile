@@ -4,7 +4,7 @@ init:
     just template
     .venv/bin/python manage.py makemigrations
     .venv/bin/python manage.py migrate
-    just runserver
+    just --list
 
 # create virtual environment
 create-venv:
