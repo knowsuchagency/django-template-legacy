@@ -22,6 +22,10 @@ runserver:
     .venv/bin/python manage.py tailwind install
     concurrently -n tailwind,django ".venv/bin/python manage.py tailwind start" "sleep 3 && .venv/bin/python manage.py runserver"
 
+# build and run in docker as if it were production
+up:
+    docker-compose up --build
+
 # templatize non-django files
 template:
     #!.venv/bin/python
@@ -54,8 +58,3 @@ deploy-zappa:
 # deploy to fly.io
 deploy-fly:
     flyctl deploy
-
-# build and run in docker as if it were production
-docker:
-    docker-compose build
-    docker-compose up
