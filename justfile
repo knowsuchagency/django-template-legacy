@@ -34,7 +34,7 @@ template:
     
     FILES = ["Dockerfile", "docker-compose.yml", "fly.toml"]
 
-    project_name = Path.cwd().stem
+    project_name = Path.cwd().stem.replace("_", "-")
 
     for f in FILES:
         path = Path(f)
