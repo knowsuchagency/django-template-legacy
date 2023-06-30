@@ -28,11 +28,10 @@ DEBUG = os.getenv("DEBUG", "true").lower().strip().startswith("t")
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s]
-    ALLOWED_HOSTS += [
-        "{{ project_name }}.fly.dev".replace("_", "-"),
-        ".amazonaws.com",
-    ]
+    ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s] + [".amazonaws.com"]
+    ALLOWED_HOSTS.append(".amazonaws.com")
+    project_name = "{{ project_name }}".replace("_", "-")
+    ALLOWED_HOSTS.append(f"{project_name}.fly.dev")
 
 
 # Application definition
