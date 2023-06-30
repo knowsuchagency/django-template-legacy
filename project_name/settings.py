@@ -30,7 +30,7 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s]
     ALLOWED_HOSTS += [
-        "{{ project_name }}.fly.dev",
+        "{{ project_name|slugify }}.fly.dev",
         ".amazonaws.com",
     ]
 
