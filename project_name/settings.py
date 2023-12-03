@@ -28,7 +28,9 @@ DEBUG = os.getenv("DEBUG", "true").lower().strip().startswith("t")
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s] + [".amazonaws.com"]
+    ALLOWED_HOSTS = [s for s in os.getenv("ALLOWED_HOSTS", "").split(" ") if s] + [
+        ".amazonaws.com"
+    ]
     ALLOWED_HOSTS.append(".amazonaws.com")
     project_name = "{{ project_name }}".replace("_", "-")
     ALLOWED_HOSTS.append(f"{project_name}.fly.dev")
@@ -160,8 +162,8 @@ INTERNAL_IPS = [
 ]
 
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
-
-AUTH_USER_MODEL = 'core.User'
+AUTH_USER_MODEL = "core.User"
 
 # WHITENOISE_USE_FINDERS = True
