@@ -8,7 +8,7 @@ init:
 
 # create virtual environment
 create-venv:
-    test -d .venv || python3.10 -m venv .venv
+    test -d .venv || python3.11 -m venv .venv
 
 # install packages
 install: create-venv

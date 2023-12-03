@@ -23,6 +23,6 @@
 ## Usage
 
 ```bash
-# make sure you have django-admin installed globally in a 3.10 interpreter
+# make sure you have django-admin installed globally in a 3.11 interpreter
 curl https://raw.githubusercontent.com/knowsuchagency/django-template/main/install.sh | bash -s <project_name>
 ```
