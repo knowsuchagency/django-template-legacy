@@ -56,8 +56,8 @@ INSTALLED_APPS = list(
             "widget_tweaks",
             "django_htmx",
             # our apps
-            "core",
-            "theme",
+            "{{project_name_underscore}}.core",
+            "{{project_name_underscore}}.theme",
         ],
     )
 )

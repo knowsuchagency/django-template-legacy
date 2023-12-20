@@ -34,12 +34,17 @@ template:
     
     FILES = ["Dockerfile", "docker-compose.yml", "fly.toml"]
 
-    project_name = Path.cwd().stem.replace("_", "-")
+    project_name_underscore = Path.cwd().stem
+    project_name = project_name_underscore.replace("_", "-")
 
     for f in FILES:
         path = Path(f)
         template = Engine().from_string(path.read_text())
-        rendered = template.render(Context({"project_name": project_name}))
+        rendered = template.render(
+            Context({
+            "project_name": project_name, 
+            "project_name_underscore": project_name_underscore"})
+            )
         path.write_text(rendered)
         print(f"templated {f}")
 
